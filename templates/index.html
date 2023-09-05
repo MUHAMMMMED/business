@@ -1,0 +1,527 @@
+{% extends "BaseGeneric.html" %} {% load static%} {% block content %}
+
+  <!--==========================
+    Intro Section
+  ============================-->
+  <section id="intro" class="clearfix">
+    <div class="container"  >
+
+
+
+
+
+      <div class="intro-info">
+        {% for info in information %}
+            <!-- <img src="img/intro-img.svg" alt="" class="img-fluid"> -->
+
+                <h2> {{ info.WebName }}  </h2>
+                <h4 style="color:#fff; text-align: center;">{{ info.Description }}</h4>      {% endfor %}
+        <div>
+          <a href="#about" class="btn-get-started scrollto">ابدء</a>
+          <a href="{% url 'business:blogAll' %}" class="btn-services scrollto">خدماتنا</a>
+        </div>
+      </div>
+
+      <!-- Displaying Information -->
+
+
+
+      <div class="intro-img">
+    {% for info in information %}
+        <!-- <img src="img/intro-img.svg" alt="" class="img-fluid"> -->
+        <img src="{{ info.SlideImage.url }}" alt="{{ info.WebName }}<" class="img-fluid">
+  {% endfor %}
+
+      </div>
+    </div>
+  </section><!-- #intro -->
+
+  <main id="main">
+
+    <!--==========================
+      About Us Section
+    ============================-->
+    <section id="about">
+      <div class="container">
+        {% for about_obj in about %}
+
+          <!-- Display other about fields as needed -->
+
+        <header class="section-header">
+          <h3>من نحن</h3>
+          <p>
+{{ about_obj.Titel }}
+
+
+
+          </p>
+        </header>
+
+        <div class="row about-container">
+
+          <div class="col-lg-6 content order-lg-1 order-2">
+            <p style="text-align: right;">
+{{ about_obj.Description }}
+            </p>
+
+
+
+            <div class="icon-box wow fadeInUp" style="text-align: right;">
+              <!-- <div class="icon"><i class="fa fa-shopping-bag"></i></div> -->
+              <h4 class="title"><a href="">  رسالتنا
+</a></h4>
+              <p class="description">
+
+{{ about_obj.Ourmessage }}
+            </p>
+            </div>
+
+            <div class="icon-box wow fadeInUp" data-wow-delay="0.2s"style="text-align: right;">
+              <!-- <div class="icon"><i class="fa fa-photo"></i></div> -->
+              <h4 class="title"><a href="">رؤيتنا</a></h4>
+              <p class="description">
+ {{ about_obj.Ourvision }}
+            </p>
+            </div>
+
+          </div>
+
+          <div class="col-lg-6 background order-lg-2 order-1 wow fadeInUp">
+            <img src="{{ about_obj.Image.url }}"  class="img-fluid" alt=""style="border-radius: 15px;">
+          </div>
+        </div>
+
+        <div class="row about-extra">
+          <div class="col-lg-6 wow fadeInUp">
+              <img src="{{ about_obj.Image2.url }}" class="img-fluid" alt="" style="border-radius: 15px;">
+          </div>
+{% endfor %}
+          <!-- Displaying Business Plan -->
+
+            <!-- Display other business plan fields as needed -->
+          <div class="col-lg-6 wow fadeInUp pt-5 pt-lg-0">
+            <h4 style="text-align: right;"> نرسم خطة عملك
+</h4>          {% for plan_obj in plan %}
+            <p style="text-align: right;">
+
+ {{ plan_obj.Description }}
+
+             </p>{% endfor %}
+
+          </div>
+        </div>
+
+
+
+      </div>
+    </section><!-- #about -->
+
+    <!--==========================
+      Services Section
+    ============================-->
+    <section id="services" class="section-bg">
+      <div class="container">
+
+        <header class="section-header">
+          <h3> الخدمات</h3>
+          <p>
+
+
+مكتب تأسيس الشركات في السعودية يقدم مجموعة واسعة من الخدمات المهمة والضرورية للأفراد والشركات الأجنبية الراغبة في تأسيس شركات في المملكة. بعض هذه الخدمات تشمل:
+
+
+        </p>
+        </header>
+
+        <div class="row">
+      {% for service in services %}
+          <div class="col-md-6 col-lg-5 offset-lg-1 wow bounceInUp" data-wow-duration="1.4s">
+            <div class="box">
+              <div class="icon"><i class="ion-ios-paper-outline" style="color: #007bff;"></i></div>
+              <!-- Displaying Services -->
+              <h4 class="title"style="text-align: center;"><a href="">{{ service.Title }}</a></h4>
+              <p class="description" style="text-align: center;">{{ service.Description }}
+             </div>
+          </div>
+
+          <!-- Display other service fields as needed -->
+        {% endfor %}
+
+
+        </div>
+
+      </div>
+    </section><!-- #services -->
+
+    <!--==========================
+      Why Us Section
+    ============================-->
+
+
+
+
+
+
+
+
+      {% for choos in chooseus %}
+    <section id="why-us" class="wow fadeIn">
+      <div class="container">
+        <header class="section-header">
+          <h3>لماذا تختار شركتنا</h3>
+          <p>
+تختار شركتنا لتأسيس الشركات في السعودية بسبب الأسباب التالية التي تجعلنا الاختيار الأفضل        </p>
+        </header>
+
+        <div class="row row-eq-height justify-content-center">
+
+          <div class="col-lg-4 mb-4">
+            <div class="card wow bounceInUp">
+                <i class="fa fa-diamond"></i>
+              <div class="card-body">
+                <h5 class="card-title"> خبرة واحترافية</h5>
+                <p class="card-text">{{ choos.Experience }}
+               </p>
+                <!-- <a href="#" class="readmore">Read more </a> -->
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mb-4">
+            <div class="card wow bounceInUp">
+                <i class="fa fa-check-square"></i>
+              <div class="card-body">
+                <h5 class="card-title">حلول مخصصة </h5>
+                <p class="card-text">{{ choos.CustomSolutions }}
+
+               </p>
+                <!-- <a href="#" class="readmore">Read more </a> -->
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mb-4">
+            <div class="card wow bounceInUp">
+                <i class="fa  fa-handshake-o"></i>
+              <div class="card-body">
+                <h5 class="card-title">شبكة قوية</h5>
+                <p class="card-text">
+ {{ choos.StrongNetwork }}
+              </p>
+                <!-- <a href="#" class="readmore">Read more </a> -->
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row counters">
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up"> {{ choos.Customers }}</span>
+            <p>العملاء
+</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">{{ choos.Projects }}</span>
+            <p>المشاريع
+</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">{{ choos.Hours_of_support }}</span>
+            <p>ساعات من الدعم</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">{{ choos.hard_at_work }}</span>
+            <p>مجدون في العمل </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>    {% endfor %}
+
+<!--      ==========================
+      Portfolio Section
+    ============================--  -->
+    <section id="portfolio" class="clearfix">
+      <div class="container">
+
+        <header class="section-header">
+          <h3 class="section-title">خدماتنا </h3>
+        </header>
+
+
+        <div class="row portfolio-container">
+
+
+<style type="text/css">
+.more{
+background-color: #004a99;
+border: none;
+color: white;
+padding: 10px 20px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 11px;
+margin: 2px 1px;
+cursor: pointer;
+border-radius: 50px;
+}
+</style>
+
+
+{% for blog_obj in blog %}
+
+<div class="col-lg-4 col-md-6 portfolio-item filter-app">
+
+<div class="portfolio-wrap">
+    <a href="{% url 'business:blogdetails' id=blog_obj.id %}">
+  <img src="{{ blog_obj.Image.url }}" class="img-fluid" alt="{{ blog_obj.Titel }}"></a>
+<div class="portfolio-info"><div>
+<a href="{% url 'business:blogdetails' id=blog_obj.id %}">  <button   class="more"> معرفة المزيد</button> </a>
+</div>   </div></div></div>{% endfor %}
+
+        </div>
+
+      </div>
+    </section><!-- #portfolio -->
+    <!--==========================-->
+      <!-- Clients Section -->
+      <!-- ============================-->
+    <section id="testimonials" class="section-bg">
+      <div class="container">
+
+        <header class="section-header">
+          <h3>الشهادات - التوصيات</h3>
+        </header>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+
+            <div class="owl-carousel testimonials-carousel wow fadeInUp">
+
+              <!-- Displaying Reviews -->
+              {% for review in reviews %}
+
+
+              <div class="testimonial-item">
+                  <img src="{{ review.Image.url }}" class="testimonial-img" alt="">
+                <h3> {{ review.Name }} </h3>
+                <h4> {{ review.jobtitel }} </h4>
+                <p>{{ review.Description }}       </p>
+
+              </div>
+    {% endfor %}
+
+
+
+      </div>
+    </section><!-- #testimonials -->
+
+    <!--==========================
+      Team Section
+    ============================-->
+    <section id="team">
+      <div class="container">
+        <div class="section-header">
+          <h3>الفريق</h3>
+          <p>
+  فريقكم استثنائي بكفاءتهم واحترافيتهم في تأسيس الشركات للأجانب في السعودية. يتعاونون بتفانٍ لتحقيق نتائج ممتازة وتلبية توقعات العملاء في المواقف المعقدة. اتساقهم وتنظيمهم يعكسان الاحترافية والتفاني في تقديم أفضل الخدمات. فريقكم هو ركيزة قوية لنجاح الشركة ويستحق التقدير والثناء.
+
+
+
+        </p>
+        </div>
+
+        <div class="row">
+
+
+
+
+
+          <!-- Displaying Team -->
+          {% for team_member in Team %}
+
+
+          <div class="col-lg-3 col-md-6 wow fadeInUp">
+            <div class="member">
+                  <img src="{{ team_member.Image.url }}" class="img-fluid" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4> {{ team_member.Name }}  </h4>
+                  <span> {{ team_member.jobtitel }}</span>
+
+                </div>
+              </div>
+            </div>
+          </div>
+    {% endfor %}
+
+        </div>
+
+      </div>
+    </section><!-- #team -->
+
+    <!--==========================
+      Clients Section
+    ============================-->
+    <section id="clients" class="section-bg">
+
+      <div class="container">
+
+        <div class="section-header">
+          <h3>عملائنا</h3>
+          <p>
+عملائنا هم أغلى ما لدينا. نحن نلتزم بتقديم خدمات ممتازة وتجربة عملاء استثنائية. نحن نقدر علاقتنا معهم ونسعى لفهم وتلبية احتياجاتهم بأفضل الطرق الممكنة. نحن نضع العملاء في صميم كل قرار نتخذه ونسعى لضمان رضاهم التام. نفخر بثقتهم في خدماتنا ونسعى لبناء علاقات طويلة الأمد معهم.
+
+
+
+        </p>
+        </div>
+
+        <div class="row no-gutters clients-wrap clearfix wow fadeInUp">
+
+
+          <!-- Displaying Our Customers -->
+          {% for customer in customers %}
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo">
+            <img src="{{ customer.Image.url }}" class="img-fluid" alt="{{ customer.Title }}">
+            </div>
+          </div>
+           {% endfor %}
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!--==========================
+      Contact Section
+    ============================-->
+    <section id="contact">
+      <div class="container-fluid">
+
+        <div class="section-header">
+          <h3> اتصل بنا  </h3>
+        </div>
+
+        <div class="row wow fadeInUp">
+       {% for info in information %}
+          <div class="col-lg-6">
+            <div class="map mb-4 mb-lg-0">
+              <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 312px;" allowfullscreen></iframe> -->
+              <iframe class="gmap_iframe" width="100%"  height="350px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=660&amp;height=385&amp;hl=en&amp;q=
+               {{info.PHONE}}
+             &amp;t=p&amp;z=18&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+         <div class="row" >
+
+
+
+
+              <div class="col-md-5 info">
+                <i class="ion-ios-location-outline"></i>
+                <p>{{ info.Address }}</p>
+              </div>
+
+              <div class="col-md-3 info">
+                <i class="ion-ios-telephone-outline"></i>
+                <p>{{ info.PHONE }}</p>
+              </div>
+
+              <div class="col-md-4 info">
+                <i class="ion-ios-email-outline"></i>
+                <p>{{ info.Gmail }}</p>
+              </div>
+
+            </div>
+
+
+<style>
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 50px;
+  margin-left: 15p;
+}
+.button2 {background-color: #008CBA;} /* Blue */
+
+</style>
+
+
+
+
+
+<style>
+table, td, th {
+  border: 0px solid black;
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  height: 100px;
+}
+   tr{
+ width: 100%;
+
+   }
+
+
+
+
+</style>
+
+<table class="mobile">
+<tr>  <th>
+<a class="cc-calto-action-ripple" href="tel:{{ info.PHONE }} ">
+<button class="button button2">   اتصل بنا <i class="fa fa-phone"></i>  </button></a>
+</th>  </tr><tr>
+
+<th>
+<a href="https://wa.me/{{info.Whatsapp}}" >
+  <button class="button">  تواصل معنا عبر الواتساب  <i class="fa fa-whatsapp "></i>  </button></a> </th>    </tr></table>
+{% endfor %}
+
+
+
+
+
+            </div>
+          </div>
+
+        </div>
+
+
+    </section><!-- #contact -->
+
+  </main>
+
+  <!--==========================
+    Footer
+  ============================-->
+  {% endblock %}

@@ -1,0 +1,230 @@
+
+{% load static %}
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>وسائل الخبرة</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="تعمل الشركة على تقديم خدمات تأسيس الشركات في المملكة العربية السعودية للأجانب الذين يرغبون في إنشاء شركاتهم الخاصة في البلاد." name="description">
+
+    <!-- Favicons -->
+    <link href="{% static 'img/favicon.jpeg' %}" rel="icon">
+    <link href="{% static 'img/favicon.jpeg' %}" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+    <!-- Bootstrap CSS File -->
+    <link href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Libraries CSS Files -->
+    <link href="{% static 'lib/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/ionicons/css/ionicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/lightbox/css/lightbox.min.css' %}" rel="stylesheet">
+    <!-- Main Stylesheet File -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  </head>
+
+
+
+<body>
+
+  <!--==========================
+  Header
+  ============================-->
+  <header id="header" class="fixed-top">
+    <div class="container">
+
+      <div class="logo float-left">
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <h1 class="text-light"><a href="#header"><span>NewBiz</span></a></h1> -->
+        <a href="/" class="scrollto"><img src="{% static 'img/logo.jpeg' %}" alt="" class="img-fluid"></a>
+      </div>
+
+      <nav class="main-nav float-right d-none d-lg-block">
+        <ul>
+          <li><a href="{% url 'business:CallUs' %}">اتصل بنا</a></li>
+          <li><a href="{% url 'business:Team' %}"> فريق العمل</a></li>
+          <li><a href="{% url 'business:blogAll' %}"> خدماتنا</a></li>
+          <li><a href="{% url 'business:About' %}">عن الشركة</a></li>
+          <li><a href="/"> الصفحة الرئيسية</a></li>
+
+
+        </ul>
+      </nav><!-- .main-nav -->
+
+    </div>
+  </header><!-- #header -->
+
+  <!--==========================
+    Intro Section
+  ============================-->
+<body onload=todayDate()> {% block content %} {% endblock %}
+
+
+  <script>
+            function todayDate() {
+                var d = new Date();
+                var n = d.getFullYear() + "  ";
+                return document.getElementById("date").innerHTML = n;
+            }
+        </script>
+
+
+  </body>
+
+  <!--==========================
+    Footer
+  ============================-->
+  <footer id="footer" >
+
+    <div class="footer-top" >
+
+    {% for info in information %}
+
+
+    <div class="copyright">
+  <h4> مواقع التواصل </h4>
+
+      <div class="social-links">
+        <a href="{{ info.Twitterlinke }}" class="twitter"><i class="fa fa-twitter"></i></a>
+        <a href="{{ info.facebooklinke }}" class="facebook"><i class="fa fa-facebook"></i></a>
+        <a href="{{ info.instagramlinke }}" class="instagram"><i class="fa fa-instagram"></i></a>
+        <a href="{{ info.linkedinlinke }}" class="linkedin"><i class="fa fa-linkedin"></i></a>
+      </div>
+
+
+      </div>
+
+      <div class="copyright">
+        Copyright © <em id="date" style="color: #e5ba68;"></em>
+         <strong>{{info.Copyright}}</strong>
+      </div>
+
+  </footer><!-- #footer -->
+    {% endfor %}
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+
+
+
+
+
+  <!-- Uncomment below i you want to use a preloader -->
+
+<style type="text/css">
+
+.float{
+  position:fixed;
+  width:60px;
+  height:60px;
+  bottom:80px;
+  right:10px;
+  background-color:#25d366;
+  color:#FFF;
+  border-radius:50px;
+  text-align:center;
+  font-size:30px;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 99999;
+}
+
+.my-float{
+  margin-top:16px;
+}
+
+
+
+.call-buton .cc-calto-action-ripple {
+  z-index: 99999;
+  position: fixed;
+  left: 2rem;
+  bottom:55px;
+  background: #ec8b00;
+  width: 3.5rem;
+  height: 3.5rem;
+  padding: 1rem;
+  border-radius: 100%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #ffffff;
+  -webkit-animation: cc-calto-action-ripple 0.6s linear infinite;
+  animation: cc-calto-action-ripple 0.6s linear infinite;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-items: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-decoration: none; }
+  .call-buton .cc-calto-action-ripple i {
+    -webkit-transition: 0.3s ease;
+    transition: 0.3s ease;
+    font-size: 2rem; }
+  .call-buton .cc-calto-action-ripple:hover i {
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg); }
+
+  @-webkit-keyframes cc-calto-action-ripple {
+  0% {
+    -webkit-box-shadow: 0 4px 10px rgba(236, 139, 0, 0.2), 0 0 0 0 rgba(236, 139, 0, 0.2), 0 0 0 5px rgba(236, 139, 0, 0.2), 0 0 0 10px rgba(236, 139, 0, 0.2);
+    box-shadow: 0 4px 10px rgba(236, 139, 0, 0.2), 0 0 0 0 rgba(236, 139, 0, 0.2), 0 0 0 5px rgba(236, 139, 0, 0.2), 0 0 0 10px rgba(236, 139, 0, 0.2); }
+  100% {
+    -webkit-box-shadow: 0 4px 10px rgba(236, 139, 0, 0.2), 0 0 0 5px rgba(236, 139, 0, 0.2), 0 0 0 10px rgba(236, 139, 0, 0.2), 0 0 0 20px rgba(236, 139, 0, 0);
+    box-shadow: 0 4px 10px rgba(236, 139, 0, 0.2), 0 0 0 5px rgba(236, 139, 0, 0.2), 0 0 0 10px rgba(236, 139, 0, 0.2), 0 0 0 20px rgba(236, 139, 0, 0); } }
+
+  @keyframes cc-calto-action-ripple {
+  0% {
+    -webkit-box-shadow: 0 4px 10px rgba(236, 139, 0, 0.2), 0 0 0 0 rgba(236, 139, 0, 0.2), 0 0 0 5px rgba(236, 139, 0, 0.2), 0 0 0 10px rgba(236, 139, 0, 0.2);
+    box-shadow: 0 4px 10px rgba(236, 139, 0, 0.2), 0 0 0 0 rgba(236, 139, 0, 0.2), 0 0 0 5px rgba(236, 139, 0, 0.2), 0 0 0 10px rgba(236, 139, 0, 0.2); }
+  100% {
+    -webkit-box-shadow: 0 4px 10px rgba(236, 139, 0, 0.2), 0 0 0 5px rgba(236, 139, 0, 0.2), 0 0 0 10px rgba(236, 139, 0, 0.2), 0 0 0 20px rgba(236, 139, 0, 0);
+    box-shadow: 0 4px 10px rgba(236, 139, 0, 0.2), 0 0 0 5px rgba(236, 139, 0, 0.2), 0 0 0 10px rgba(236, 139, 0, 0.2), 0 0 0 20px rgba(236, 139, 0, 0); } }
+
+  span.num{
+    position: absolute;
+    color: #ec8b00;
+    font-size:12px;
+    left: -30%;
+    bottom: -70%;
+      width: 150px;
+  }
+
+ 
+</style>
+
+{% for info in information %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <a href="https://wa.me/{{info.Whatsapp}}" class="float"  >
+  <i class="fa fa-whatsapp my-float"></i>
+</a>
+<section class="call-buton"><a class="cc-calto-action-ripple" href="tel:{{ info.PHONE }} "><i class="fa fa-phone"></i><span class="num"> {{ info.PHONE }}</span>
+</a>
+</section>
+
+{% endfor %}
+
+
+<!-- <div id="preloader"></div> -->
+
+<!-- JavaScript Libraries -->
+<script src="{% static 'lib/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'lib/jquery/jquery-migrate.min.js' %}"></script>
+<script src="{% static 'lib/easing/easing.min.js' %}"></script>
+<script src="{% static 'lib/mobile-nav/mobile-nav.js' %}"></script>
+<script src="{% static 'lib/wow/wow.min.js' %}"></script>
+<script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+<script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+<script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>
